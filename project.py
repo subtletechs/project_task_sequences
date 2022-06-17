@@ -41,7 +41,7 @@ class Project(models.Model):
         functional_code = 'fun'
         implementation_code = 'imp'
         if self.name:
-        name = self.name
+            name = self.name
             name_list = name.split(" ")
             for word in name_list:
                 if not project_code:
