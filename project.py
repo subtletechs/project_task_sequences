@@ -40,19 +40,20 @@ class Project(models.Model):
         project_code = None
         functional_code = 'fun'
         implementation_code = 'imp'
+        if self.name:
         name = self.name
-        name_list = name.split(" ")
-        for word in name_list:
-            if not project_code:
-                project_code = word[0].upper()
-            else:
-                project_code = project_code+word[0].upper()
-            functional_code = functional_code+'.'+word.lower()
-            implementation_code = implementation_code+'.'+word.lower()
+            name_list = name.split(" ")
+            for word in name_list:
+                if not project_code:
+                    project_code = word[0].upper()
+                else:
+                    project_code = project_code+word[0].upper()
+                functional_code = functional_code+'.'+word.lower()
+                implementation_code = implementation_code+'.'+word.lower()
 
-        self.project_code = project_code
-        self.project_functional_sequence_code= functional_code
-        self.project_implementation_sequence_code = implementation_code
+            self.project_code = project_code
+            self.project_functional_sequence_code= functional_code
+            self.project_implementation_sequence_code = implementation_code
 
 
 class Task(models.Model):
