@@ -29,5 +29,16 @@
         </field>
     </record>
 
+    <record id="project_task_form_view2_inherit_subtle_tech" model="ir.ui.view">
+        <field name="name">project.task.form.view2.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='parent_id']" position="after">
+                <field name="task_category"/>
+            </xpath>
+        </field>
+    </record>
+
 
 </odoo>
