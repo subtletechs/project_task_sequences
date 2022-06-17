@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_form_view_inherit_subtle_tech" model="ir.ui.view">
+        <field name="name">project.form.view.inherit</field>
+        <field name="model">project.project</field>
+        <field name="inherit_id" ref="project.edit_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[2]" position="after">
+                <button name="create_sequence" string="Create Task Sequence" type="object" class="oe_highlight"/>
+            </xpath>
+            <xpath expr="//field[@name='privacy_visibility']" position="after">
+                <field name="project_code"/>
+                <field name="project_functional_sequence_code"/>
+                <field name="project_implementation_sequence_code"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="project_task_form_view_inherit_subtle_tech" model="ir.ui.view">
+        <field name="name">project.task.form.view.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.quick_create_task_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="after">
+                <field name="task_category"/>
+                <field name="project_id" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>
